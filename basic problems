@@ -200,6 +200,19 @@ def perfect(N):
 N=int(input())
 perfect(N)
 
+ABUNDANT NUMBER
+
+def abundant(N):
+    s=0
+    for i in range(1,N):
+        if N%i==0:
+            s+=i
+    if N<s:............................>difference with perfect number is ....here the N<sum..means abundant number
+        print("abundant number")
+    else:
+        print("not a abundant number")
+N=int(input())
+abundant(N)
 13.STRONG NUMBER..............>sum of factorial of each digit of a number = N
 
 N=int(input())
@@ -214,4 +227,52 @@ if sum==N:
     print("strong number")
 else:
     print("not a strong number")
+
+14.PERFECT SQUARE NUMBER..............>typecasting is imp 
+
+from math import sqrt
+l=[23,25,49,67,81,98,100]
+res=[]
+for i in l:
+    s=int(sqrt(i))
+    if s*s==i:
+        res.append(i)
+print(res)
+
+15.AUTOMORPHIC NUMBER ......square of a number ends with the number
+
+n=int(input())
+s=n*n
+if s%10==n:
+    print("automorphic")
+else:
+    print("not")
+
+16.HARSHAD NUMBER OR NOT.................>The number divisible by sum of digits of a number is harshad
+
+n=int(input())
+s=0
+while n>0:
+    l=n%10
+    s+=l
+    n/=10
+if n%s==0:
+    print("harshad number")
+else:
+    print("not")
+
+17.FRIENDLY PAIRS..............>do sum of factors of number except that number / number for both ....if that value same means friendly pair
+
+def perfect(n):
+    s=0
+    for i in range(1,n):
+        if n%i==0:
+            s+=i
+    return s
+n1,n2 = map(int,input().split())
+r1=perfect(n1)/n1
+r2=perfect(n2)/n2
+print(r1==r2)
+
+
 
