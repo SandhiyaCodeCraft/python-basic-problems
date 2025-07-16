@@ -1,0 +1,217 @@
+1.ARMSTRONG NUMBER
+
+import math
+n=int(input())
+c=len(str(n))
+s=0
+for i in str(n):
+    s+=math.pow(int(i),c)
+if s==n:
+    print("armstrong")
+else:
+    print("not")
+
+ARMSTRONG IN A GIVEN RANGE
+
+import math
+n1=int(input())
+n2=int(input())
+for i in range(n1,n2+1):
+    c=len(str(i))
+    s=0
+    for j in str(i):
+        s+=math.pow(int(j),c)
+    if s==i:
+        print(i,"is armstrong")
+    else:
+        print(i,"is not armstrong")
+    
+2.GREATEST OF THREE NUMBERS
+
+num1,num2,num3 = 4,5,2
+if num1>=num2 and num1>=num3:
+  print(num1)
+elif num2>=num1 and num2>=num3:
+  print(num2)
+else:
+  print(num3)
+
+3.GCD OF TWO NUMBERS
+
+n1=int(input())
+n2=int(input())
+gcd=0
+for i in range(1,min(n1,n2)):
+    if n1%i==0 and n2%i==0:
+        gcd=max(gcd,i)
+print(gcd)
+
+4.LEAP YEAR OR NOT
+
+y=int(input())
+if y%400==0:
+    print("leap")
+elif y%4==0 and y%100!=0:
+    print("leap")
+else:
+    print("not leap year")
+
+5.PRIME NUMBER OR NOT
+
+n=int(input())
+c=0
+for i in range(1,n+1):
+    if n%i==0:
+        c+=1
+if c==2:
+    print("prime")
+else:
+    print("not")
+
+6.PRIME IN A RANGE
+
+n1=int(input())
+n2=int(input())
+for i in range(n1,n2+1):
+    c=0
+    for j in range(1,i+1):
+        if i%j==0:
+            c+=1
+    if c==2:
+        print(i," is a prime")
+    else:
+        print(i,"is not a prime")
+
+7.REVERSE OF A NUMBER
+
+n1=int(input())
+print(str(n1)[::-1])
+or
+
+n1=int(input())
+s=list(str(n1))//we cant convert the int to list directly and also we cant use assignment operation in string  
+l=0
+r=len(s)-1
+while l<r:
+    s[l],s[r]=s[r],s[l]
+    l+=1
+    r-=1
+print("".join(s))
+
+8.PALINDROME OR NOT
+
+n1=int(input())
+o=n1
+s=list(str(n1))
+l=0
+r=len(s)-1
+while l<r:
+    s[l],s[r]=s[r],s[l]
+    l+=1
+    r-=1
+rev=int("".join(s))
+if o==rev:
+    print("palindrome")
+else:
+    print("not")
+
+9.FIRST N FIBONACCI NUMBERS
+
+N=int(input())
+f=0
+s=1
+print(f,s,end=" ")
+for i in range(2,N):
+    c=f+s
+    print(c,end=" ")
+    f=s
+    s=c
+
+5TH TERM ELEMENT IN A FIBONACCI SERIES
+
+N=int(input())
+t=5
+l=[0,1]
+f=l[0]
+s=l[1]
+for i in range(2,N):
+    c=f+s
+    l.append(c)
+    f=s
+    s=c
+print(l[t-1])
+
+i/p:
+10
+3
+
+10.FACTORIAL OF A NUMBER
+
+N=int(input())
+fact=1
+for i in range(1,N+1):
+    fact*=i
+print(fact)
+
+USING RECURSION
+
+def factorial(N):
+    if N==0:
+        return 1
+    return N*factorial(N-1)
+N=int(input())
+print(factorial(N))
+
+11.FACTORS OF A NUMBER
+
+def factorial(N):
+    if N==0:
+        return 1
+    return N*factorial(N-1)
+N=int(input())
+print(factorial(N))
+
+PRIME FACTORS OF A NUMBER
+
+def factors(N):
+    for i in range(1,N+1):
+        if N%i==0:
+            l=len(str(i))
+            c=0
+            for j in range(1,i+1):
+                if i%j==0:
+                    c+=1
+            if c==2:
+                print(i)
+N=int(input())
+factors(N)
+
+12.PERFECT NUMBER...............>sum of factors of a numbers = N,BUT EXCLUDE N in range
+
+def perfect(N):
+    s=0
+    for i in range(1,N):
+        if N%i==0:
+            s+=i
+    if s==N:
+        print("perfect number")
+    else:
+        print("not a perfect number")
+N=int(input())
+perfect(N)
+
+13.STRONG NUMBER..............>sum of factorial of each digit of a number = N
+
+N=int(input())
+s=str(N)
+sum=0
+for i in s:
+    fact=1
+    for j in range(1,int(i)+1):
+        fact=fact*j
+    sum+=fact
+if sum==N:
+    print("strong number")
+else:
+    print("not a strong number")
+
