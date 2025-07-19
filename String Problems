@@ -1,0 +1,445 @@
+1.CHAR IS ALPHABET OR NOT
+
+c = input()
+if c.isalpha():
+    print("yes")
+else:
+print("no")
+
+
+2.LENGTH WITHOUT LEN()
+
+s=input()
+c=0
+for i in s:
+    if i:
+        c+=1
+print(c)
+
+3.ASCII VALUE OF CHAR
+
+python:
+c=input()
+print(ord(c))
+
+4.PRINT LENGTH WITHOUT SPACE
+
+****we cant use strip()bcoz it removes the space only at beginning and ending.
+
+s = "wbhahb sdjsdskd njd"
+print(len(s.replace(" ","")))
+(or)
+s="qwgv dbsv dyy"
+st = s.replace(" ","")
+c=0
+for i in st:
+    if i:
+        c+=1
+print(c)
+
+5.PRINTING EVEN LENGTH WORDS IN A STRING
+
+s = "This is sandhiya"
+st = s.split(" ")
+for i in st:
+    if (len(i)%2==0):
+        print(i)
+
+or using list comprehension
+
+s = "This is sandhiyaa"
+st = s.split(" ")
+res = [i for i in st if len(i)%2==0]
+print(*res)....................................unpack the list(without brackets)
+
+
+6.UPPERCASE HALF STRING
+s = "This is sandhiyaa"
+us = s.replace(" ","")
+half = len(us)//2
+print(us[:half]+us[half:].upper())
+
+or
+
+s = "This is sandhiyaa"
+S=list(s)
+m=len(S)//2
+st=m
+e=len(S)
+for i in range(st,e):
+    S[i]=S[i].upper()
+print("".join(S))
+
+7.CAPITALIZE FIRST AND LAST CHARACTER IN A STRING 
+
+s = "welcome to geeksforgeeks"
+a = s.split(" ")
+res = []
+for i in a:
+    x = i[0].upper()+i[1:-1]+i[-1].upper()
+    res.append(x)
+res = " ".join(res)
+print("String after:", res)
+
+8.CHECK A STRING CONTAIN ATLEAST ONE LETTER AND ONE NUMBER
+def checkString(str):
+	flag_l = False
+	flag_n = False
+	for i in str:
+	    if i.isalpha():
+	        flag_l = True
+	    if i.isdigit():
+	        flag_n = True
+	return flag_l and flag_n
+print(checkString('thishasboth3'))
+print(checkString('gir'))
+
+9.PRINT WORDS THAT ARE GREATER THAN GIVEN LENGTH
+
+sentence = "hello geeks for geeks is computer science portal"
+length = 4
+s = sentence.split(" ")
+for i in s:
+    if len(i)>length:
+        print(i)
+
+10.REVERSE WORD IN A STRING 
+
+sentence = "hello geeks for geeks is computer science portal"
+s = sentence.split(" ")
+res = " ".join(s[::-1]) // using backward for loop
+print(res)
+
+11.BASIC KNOWNS
+
+ix)middle character
+str="java"
+print(str[len(str)//2])
+
+x)integer to string
+x=42
+print(str(x))
+res=f”{x}”
+print(res)
+
+xi)string to integer
+s="42"#integer string
+b="1010"#binary string
+c="A"#hexadecimal string
+d="abc"#invalid string
+print(int(s))
+print(int(b,2))
+print(int(c,16))
+try:
+    print(int(d))
+except ValueError:
+    print("invalid input")
+o/p:
+42
+10
+10
+invalid input
+............................print(int("20",8))....o/p is 16 because 
+
+xii)string to list:
+s = "Geeks for Geeks"
+print(list(s))
+st=s.split()
+print(st)
+for i in st:
+    print(list(i))
+o/p:
+['G', 'e', 'e', 'k', 's', ' ', 'f', 'o', 'r', ' ', 'G', 'e', 'e', 'k', 's']
+['Geeks', 'for', 'Geeks']
+['G', 'e', 'e', 'k', 's']
+['f', 'o', 'r']
+['G', 'e', 'e', 'k', 's']
+
+xiii)list to string
+a = ['Geeks', 'for', 'Geeks']
+a = ['P', 'y', 't', 'h', 'o', 'n']
+res = ','.join(a)
+print(res)
+print("".join(a))
+
+xiv)object to string
+Int = 6
+Float = 6.0
+s1 = str(Int) 
+print(s1) 
+print(type(s1)) 
+s2= str(Float) 
+print(s2) 
+print(type(s2))
+6
+<class 'str'>
+6.0
+<class 'str'>
+
+xv)check empty string
+if len(s)==0:
+  print(“empty string”)
+
+
+12.PALINDROME 
+
+def palindrome(s):
+    S = s.lower().....................ignorecase
+    l=0
+    r=len(s)-1
+    while l<r:
+        if not s[l].isalpha():.................ignore special characters
+            l+=1
+        elif not s[r].isalpha():
+            r-=1
+        elif s[l]!=s[r]:
+            return False
+            break
+        else:
+            l+=1
+            r-=1
+    return True
+s=input()
+print(palindrome(s))
+
+Java:
+
+import java.util.*;
+public class Main{
+    static boolean palindrome(String s){
+        String S = s.toLowerCase();
+        int l=0;
+        int r=S.length()-1;
+        while(l<r){
+            if(!Character.isAlphabetic(S.charAt(l))){
+                l+=1;
+            }
+            else if(!Character.isAlphabetic(S.charAt(r))){
+                r-=1;
+            }
+            else if(S.charAt(l)!=S.charAt(r)){
+                return false;
+            }
+            else{
+                l+=1;
+            r-=1;
+            }
+        }
+        return true;
+    }
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    String s = sc.nextLine();
+		System.out.println(palindrome(s));
+	}
+}
+
+13.REMOVE DUPLICATES WITH ORDER
+
+i)USING OrderedDict.fromkeys():
+from collections import OrderedDict
+sentence = "hello Geeks for Geeks is computer science portal"
+print("".join(OrderedDict.fromkeys(sentence)))
+
+ii)using for loop:
+u=[]
+d=[]
+sentence = "hello Geeks for Geeks is computer science portal"
+s=sentence.replace(" ","")
+for i in s:
+    if i not in u:
+        u.append(i)
+    else:
+        d.append(i)
+print("".join(u))
+
+14.REMOVE DUPLICATES WITHOUT ORDER:
+sentence = "hello Geeks for Geeks is computer science portal"
+s=sentence.replace(" ","")
+print("".join(set(s)))
+
+15.ANAGRAM OR NOT
+optimised code:
+def anagram(S1,S2):
+    if len(S1)!=len(S2):
+        return False
+    d={}
+    for i in S1:
+        d[i] = d.get(i,0)+1
+    for i in S2:
+        if i not in d or d[i]==0:
+            return False
+        d[i]-=1 //means all letters should be there ,should not be zero
+    return True
+s1 = "liste"
+s2 = "silent"
+S1 = s1.replace(" ","").lower()
+S2 = s2.replace(" ","").lower()
+print(anagram(S1,S2))
+
+or
+from collections import Counter
+str1=input()
+str2=input()
+s1=str1.replace(" ","").lower()
+s2=str2.replace(" ","").lower()
+print(sorted(s1)==sorted(s2))
+print(Counter(s1)==Counter(s2))
+
+16.CHECK ALL VOWELS PRESENT IN A STRING 
+
+def allvowels(S1):
+    v=['a','e','i','o','u']
+    c=0
+    for i in v:
+        if i in S1:
+            c+=1
+    if len(v)==c:
+        return "accepted"
+    else:
+        return "not accepted"
+s1 = "saeiou"
+print(allvowels(s1))
+
+using set difference:
+
+def check(s):
+    string = set(s.lower())
+    vowels=set("aeiou")
+    if len(vowels.difference(string))==0:
+        return "accepted"
+    else:
+        return "not accepted"
+s = input()
+print(check(s))
+
+17.COUNT OF COMMON CHARACTERS without duplicates
+def check(s1,s2):
+    set1 = set(s1)
+    set2=set(s2)
+    return len(set1.intersection(set2))
+s1 = input()
+s2 = input()
+print("count of common characters is:",check(s1,s2))
+o/p:5
+def check(s1,s2):
+    set1 = set(s1)
+    set2=set(s2)
+    print(set1.intersection(set2))
+s1 = input()
+s2 = input()
+check(s1,s2)
+o/psandhiya
+sandy
+{'n', 'a', 'd', 's', 'y'}
+
+using for loop:
+def common(S1,S2):
+    c=0
+    d=[]
+    for i in S1:
+        if i in S2 and i not in d:
+            c+=1
+            d.append(i)
+    return c
+s1 = "saeioua"
+s2 = "samzua"
+print(common(s1,s2))
+
+18.COUNT NUMBER OF VOWELS WITH DUPLICATES:
+def check(s1):
+    vowels = "aeiouAEIOU"
+    c=0
+    for i in vowels:
+        c+=s1.count(i)
+    print(c)
+s1 = input()
+check(s1)
+
+WITHOUT DUPLICATES:
+def countvow(S1):
+    c=0
+    v="aeiou"
+    s="".join(set(S1.lower()))
+    for i in s:
+        if i in v:
+            c+=1
+    print(c)
+s1="saeioua"
+countvow(s1)
+
+19.LEAST FREQ CHAR----optimised
+from collections import Counter
+def leastfreqchar(s):
+    c = Counter(s)
+    res = min(c,key=c.get)
+    print("least frequent character:",res)
+s = input()
+leastfreqchar(s)
+
+or
+
+def leastfreq(S1):
+    d = {}
+    for i in S1:
+        d[i] = d.get(i, 0) + 1  # Count each character......................optimised instead using count()
+
+    m = min(d.values())         # Find minimum frequency
+    r = [i for i, j in d.items() if j == m]  # Characters with min freq
+    print(*r)
+s1 = "saeioua"
+leastfreq(s1)
+
+20.ODD FREQ CHARACTERS
+
+def oddfreq(S1,l):
+    d={}
+    for i in S1:
+        d[i]=d.get(i,0)+1...............................optimised 
+    r = [(i,j) for i,j in d.items() if i in l]
+    for i,j in r:.............................unpacking list of tuples
+        print(f"{i}:{j}",end=" ")
+s1="saeioua"
+l=['a','e']
+oddfreq(s1,l)
+
+21.FIND THE COUNT AND NUMBERS PRESENT IN A STRING
+
+def digitscount(s):
+    c=0
+    l=[]
+    for i in s:
+        if(i.isdigit()):
+            c+=1
+            l.append(i)
+    print(c) 
+    print(l)
+s = input()
+digitscount(s)
+
+22.SPECIAL CHARACTER PRESENT OR NOT IN A STRING
+
+def splcharpresornot(s):
+    for i in s:
+        if not (i.isdigit() or i.isalpha() or i==' '):
+            return True //iterate the whole string until it return true otherwise only return false
+    return False
+s = input()
+res = splcharpresornot(s)
+if (res==True):
+    print('present')
+else:
+    print("not present")
+//using string.punctuation
+import string 
+def splcharpresornot(s):
+    for i in s:
+        if i in string.punctuation:
+            return True
+    return False
+s = input()
+res = splcharpresornot(s)
+if (res==True):
+    print('present')
+else:
+    print("not present")
