@@ -47,11 +47,23 @@ for i in range(gap+1):
     t+=s
 print(t)
 
-4.SQUARE NUMBER IN A ARRAY
+4. REPLACE O WITH 5
 
 n=int(input())
 s=str(n)
 print(s.replace('0','5'))
+
+5.SQUARE NUMBER IN AN ARRAY
+
+import math
+n=int(input())
+l=list(map(int,input().split()))
+r=[]
+for i in l:
+    s=int(math.sqrt(i))
+    if s*s==i:
+        r.append(i)
+print(*r)
 
 
 
