@@ -47,3 +47,11 @@ for i in range(gap+1):
     t+=s
 print(t)
 
+4.SQUARE NUMBER IN A ARRAY
+
+n=int(input())
+s=str(n)
+print(s.replace('0','5'))
+
+
+
