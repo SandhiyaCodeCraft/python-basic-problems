@@ -462,3 +462,23 @@ for i in s:
             r[v_o]=i
             v_o+=2
 print("".join(r))
+
+24.MOVE # TO FRONT 
+
+s="f#cfds#d#"
+l=list(s)
+j=len(s)-1
+for i in range(len(s)-1,-1,-1):
+    if l[i]!='#':
+        l[j]=l[i]
+        j-=1
+while j>=0:
+    l[j]='#'
+    j-=1
+print("".join(l))
+
+25.REPLACE 0 WITH 5 IN A NUMBER
+
+n=int(input())
+s=str(n)
+print(s.replace('0','5'))
