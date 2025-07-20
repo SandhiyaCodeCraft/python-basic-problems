@@ -443,3 +443,22 @@ if (res==True):
     print('present')
 else:
     print("not present")
+
+23.place consonats at even index,vowels in odd index
+
+s="beaudf"
+v=['a','e','i','o','u']
+vo=[i for i in s if i in v]
+co=[i for i in s if i not in v]
+r=['']*len(s)
+v_o,c_o = 1,0
+for i in s:
+    if i in co:
+        if c_o<len(s):
+            r[c_o]=i
+            c_o+=2
+    else:
+        if v_o<len(s):
+            r[v_o]=i
+            v_o+=2
+print("".join(r))
