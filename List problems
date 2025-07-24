@@ -226,6 +226,59 @@ def sorting(arr):
 arr=[6,4,2,9,1,5,2,5]
 print(sorting(arr))
 
+14.MISSING ELEMENT IN AN ARRAY
+a=[5,4,0,1,2]
+n=len(a)
+s1=n*(n+1)/2
+s2=sum(a)
+print(int(s1-s2))
+
+15.MOVE ZEROS TO END:
+a=[5,0,0,4,0,1,2]
+j=0
+for i in a:
+    if i!=0:
+        a[j]=i
+        j+=1
+while j<len(a):
+    a[j]=0
+    j+=1
+print(a)
+
+16.MOVE # TO FRONT
+s="s#d#hjk#"
+l=list(s)
+j=len(l)-1
+for i in range(len(l)-1,-1,-1):
+    if l[i]!='#':
+        l[j]=l[i]
+        j-=1
+while j>=0:
+    l[j]='#'
+    j-=1
+print("".join(l))
+
+17.NEXT GREATER ELEMENT:.................linearly only
+arr=[4, 5, 2, 10, 8]
+r=[-1]*len(arr)
+for i in range(len(arr)):
+    for j in range(i+1,len(arr)):
+        if arr[j]>arr[i]:
+            r[i]=arr[j]
+            break
+print(r)
+
+18.NEXT GREATER ELEMENT ....CIRCULAR CHECK...........leetcode NGE-II
+arr=[4, 5, 2, 10, 8]
+r=[-1]*len(arr)
+for i in range(len(arr)):
+    for j in range(1,len(arr)):
+        idx=(i+j)%len(arr)
+        if arr[idx]>arr[i]:
+            r[i]=arr[idx]
+            break
+print(r)
+
 
 
 
