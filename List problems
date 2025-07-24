@@ -1,7 +1,127 @@
-1.in question N=10, n1,n2=1,5, val=5.....n1,n2 are 1 based index means 1 is 1st element i.e 0th index element..5 means 4th index
+1.MAX OCCURING NUMBER IN A LIST
+
+arr=[1,2,1,1,2,3]
+d={}
+for i in arr:
+    d[i]=d.get(i,0)+1
+m=max(d.values())
+r=[i for i,j in d.items() if j==m]
+print(*r)
+
+2.PRINT COUNT IF ELEMENTS LEFT COUNT > RIGHT COUNT
+li=[1,3,4,5,6,8,9,6,4]
+c=0
+for i in range(len(li)):
+    l=i
+    r=len(li)-i-1
+    if l>r:
+        c+=1
+print©
+
+3.PRINT COUNT,NUMBER FOR WHICH LEFT ELEMENT > RIGHT ELEMENT
+
+arr=[1,2,4,6,9,3]
+c=0
+for i in range(len(arr)):
+    l=i-1
+    r=i+1
+    if l<len(arr) and r<len(arr):
+        if arr[l]>arr[r]:
+            c+=1
+            print(arr[i])
+            print(f"{arr[i]}-{arr[l]},{arr[r]}")
+print(c)
+
+
+4.PRINT COUNT,NUMBER FOR WHICH LEFT ELEMENT + RIGHT ELEMENT = THAT NUMBER
+
+arr=[1,2,6,4,7,3]
+c=0
+for i in range(len(arr)):
+    l=i-1
+    r=i+1
+    if l<len(arr) and r<len(arr):
+        if arr[l]+arr[r]==arr[i]:
+            c+=1
+            print(arr[i])
+            print(f"{arr[i]}-{arr[l]}+{arr[r]}")
+print(c)
+
+o/p:
+6
+6-2+4
+7
+7-4+3
+count:2
+
+5.PRINT FIRST HALF IN ASCENDING AND SECOND HALF IN DESCENDING:
+arr=[6,4,2,9,1,5,2,5]
+m=len(arr)//2
+res=[]
+res.extend(sorted(arr[:m]))..................................sorted()...cant use sort()return nonetype error
+res.extend(sorted(arr[m:],reverse=True))
+print(res)
+
+o/p:[2,4,6,9,5,5,2,1]
+
+or
+
+def counting_sort_all(arr):.....................for small range numbers only..try .sort() if wont work try this
+    if not arr:
+        return []
+
+    min_val = min(arr)
+    max_val = max(arr)
+    range_size = max_val - min_val + 1
+
+    count = [0] * range_size
+
+    for num in arr:
+        count[num - min_val] += 1
+    res = []
+    for i in range(range_size):
+        res.extend([i + min_val] * count[i])
+
+    return res
+    
+arr=[6,4,2,9,1,5,2,5]
+m=len(arr)//2
+res=[]
+res.extend(counting_sort_all(arr[:m]))
+res.extend(counting_sort_all(arr[m:])[::-1]).....descending order
+print(res)
+
+6.AFTER SORTING ...PRINT FIRST HALF IN ASCENDING AND SECOND HALF IN DESCENDING
+arr=[6,4,2,9,1,5,2,5]
+arr.sort()
+m=len(arr)//2
+res=[]
+res.extend(arr[:m])
+res.extend(arr[m:][::-1])
+print(res)
+
+O/P:[1,2,2,4,9,6,5,5]
+
+7.ZOHO QN:WE HAVE TO PLACE EVEN NUMERS IN EVEN NUMBER INDICES..IN ASCENDING...AND ODD MEANS DECENDING...PLACE IT IF ODD NUMBER IS ENCOUNTERED
+arr=[6,4,2,9,1,5,2,5]
+e=sorted([i for i in arr if i%2==0])
+o=sorted([i for i in arr if i%2!=0],reverse=True)
+j,k=0,0
+for i in range(len(arr)):
+    if arr[i]%2==0:
+        arr[i]=e[j]
+        j+=1
+    if arr[i]%2!=0:
+        arr[i]=o[k]
+        k+=1
+print(arr)
+
+O/P:[2,2,4,9,5,5,6,1]....in i/p arr 6 is even so the first sorted even element is 2...that is placed...likewise
+
+8.in question N=10, n1,n2=1,5, val=5.....n1,n2 are 1 based index means 1 is 1st element i.e 0th index element..5 means 4th index
 [1,2,3,4,5,6,7,8,9,10]...in first swap [5,4,3,2,1,6,7,8,9,10]...in second swap [5,4,3,2,1,10,9,8,7,6].......mid=5 i.e element 6
 
-def swap(l,s,e):
+def swap(l,s,e):............................use this instead of indexing reverse ::-1
     while s<e:
         l[s],l[e]=l[e],l[s]
         s+=1
@@ -15,25 +135,24 @@ swap(l,n1-1,m-1)
 swap(l,n2,len(l)-1)
 print(l[val-1])
 
-2.SQUARES OF SORTED ARRAY...O/P IN THE ORDER OF ARRAY
+9.SQUARES OF SORTED ARRAY...O/P IN THE ORDER OF ARRAY.
 
-arr=[-4,-1,0,3,10]
+arr=[-4,-1,0,3,10]........sorted array..so use two pointer approach
 res=[0]*len(arr)
 l=0
 r=len(arr)-1
 for i in range(len(arr)-1,-1,-1):
     if abs(arr[l]) > abs(arr[r]):
-        res[i]=arr[l]
+        res[i]=arr[l]................>insted we assign arr[l]*arr[l]...it gives o/p of sorted squares of array 
         l+=1
     else:
         res[i]=arr[r]
         r-=1
 print(res)
 
-3.GAP ADDITION
+10.GAP ADDITION
 I/P:arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 gap = 3
-
 o/p:45
 
 arr=[1,2,3,4,5,6,7,8,9]
@@ -46,13 +165,13 @@ for i in range(gap+1):
     t+=s
 print(t)
 
-4. REPLACE O WITH 5
+11. REPLACE O WITH 5
 
 n=int(input())
 s=str(n)
 print(s.replace('0','5'))
 
-5.SQUARE NUMBER IN AN ARRAY
+12.SQUARE NUMBER IN AN ARRAY
 
 import math
 n=int(input())
@@ -64,8 +183,8 @@ for i in l:
         r.append(i)
 print(*r)
 
-6.SORT AN ARRAY:
-
+13.SORT AN ARRAY:......>sort() is used for both small and large integers range and optimised...try this if wont work go for counting sort(not suitable for high ranges).
+   we cant use two pointer approach for sorting...it is suitable to only sorted array:
 def counting_sort_all(arr):
     if not arr:
         return []
@@ -88,5 +207,25 @@ def counting_sort_all(arr):
     return res
 arr=[2,1,56,89,23]
 print(counting_sort_all(arr))
+
+DESCENDING ORDER:......................>.sort(reverse=True)
+
+def sorting(arr):
+    if not arr:
+        return []
+    ma=max(arr)
+    mi=min(arr)
+    r=ma-mi+1
+    count=[0]*r
+    for i in arr:
+        count[i-mi]+=1
+    res=[]
+    for i in range(len(arr)-1,-1,-1):
+        res.extend([i+mi]*count[i])
+    return res
+arr=[6,4,2,9,1,5,2,5]
+print(sorting(arr))
+
+
 
 
