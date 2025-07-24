@@ -279,6 +279,122 @@ for i in range(len(arr)):
             break
 print(r)
 
+19.SUM OF DIGITS OF EACH ELEMENT IN A LIST
 
+list1 = list(map(int,input().split()))
+lst = []
+for i in list1:
+    sum=0
+    for j in str(i):
+        sum+=int(j)
+    lst.append(sum)
+print(*lst)
 
+20.MULTIPLY NUMBERS IN A LIST
+Method 1:
+list1 = list(map(int,input().split()))
+mul=1 
+for i in list1:
+    mul*=i
+print(mul)
+
+Method 2:using math.prod()
+import math
+list1 = list(map(int,input().split()))
+res=math.prod(list1)
+print(res)
+
+21.SECOND SMALLEST
+def secsmall(li,n):
+    if n<=1:
+        return -1
+    s=float('inf')
+    ss=float('inf')
+    for i in li:
+        if i<s:
+            ss=s
+            s=i
+        elif i<ss and i!=s:
+            ss=i
+    if ss==float('inf'):
+        return s
+    return ss
+        
+n=int(input())
+li=list(map(int,input().split()))
+print(secsmall(li,n))
+
+22.SECOND LARGEST
+python:
+def seclar(li,n):
+    if n<=1:
+        return -1
+    l=float('-inf')
+    sl=float('-inf')
+    for i in li:
+        if i>l:
+            sl=l
+            l=i
+        elif i>sl and i!=l:
+            sl=i
+    if sl==float('-inf'):
+        return l
+    return sl
+n=int(input())
+li=list(map(int,input().split()))
+print(seclar(li,n))
+
+23.INTERSECTION AND UNION OF TWO LIST
+list1 = list(map(int,input().split()))
+list2 = list(map(int,input().split()))
+res = list(set(list1)&set(list2))
+res1 = list(set(list1)|set(list2))
+print(res)
+print(res1)
+
+24.CUMULATIVE SUM
+
+l=[1,2,3,4,7,6]
+res=[]
+res.append(l[0])
+for i in range(len(l)-1):
+    s=l[i]+l[i+1]
+    res.append(s)
+print(res)
+
+or
+
+import itertools 
+l=[1,2,3,4,7,6]
+r=itertools.accumulate(l)
+print(list(r))
+
+25.ELEMENT FREQUENCY
+
+from collections import Counter
+l = list(map(int,input().split()))
+li=Counter(l)
+for i in li:
+    print(i,li[i])
+
+26.SORT BASED ON SECOND LIST
+
+a = ['a', 'b', 'c', 'd']
+b = [3, 1, 4, 2]
+res = [j for i,j in sorted(zip(b,a))]
+print(res)
+
+27.Break a List into Chunks of Size N in Python
+
+l=list(map(int,input().split()))
+n=int(input())
+r=[]
+for i in range(0,len(l),n):
+    r.append(l[i:i+n])
+print(r)
+OR
+a = [1, 2, 3, 4, 5, 6, 7, 8]
+n=2
+res=[a[i:i+n]for i in range(0,len(a),n)]
+print(res)
 
