@@ -416,7 +416,29 @@ for i in test_list:
     r.append(i[::-1])
 print(r)
 
-3.
+3.print count of each word anagrams
+i/p:5
+dictionary=[listen,silent,enlist,google,gooegl]
+queries=[listen,google,gooleg]
+o/p:
+3
+2
+2
+
+def stringAnagram(dictionary, query):
+    from collections import defaultdict..............>also use d={} ...and d[i] = d.get(i,0)+1 ...this dictionary count logic
+    
+    anagram_counts = defaultdict(int)
+    for word in dictionary:
+        key = ''.join(sorted(word))
+        anagram_counts[key] += 1
+    
+    result = []
+    for q in query:
+        key = ''.join(sorted(q))
+        result.append(anagram_counts.get(key, 0))
+    return result
+
 
 
 
