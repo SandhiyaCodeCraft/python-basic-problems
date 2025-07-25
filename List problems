@@ -398,3 +398,25 @@ n=2
 res=[a[i:i+n]for i in range(0,len(a),n)]
 print(res)
 
+
+LISTS OF STRINGS
+1.Python program to find the character position of Kth word from a list of strings
+test_list = ["geekforgeeks", "is", "best", "for", "geeks"]
+n=22
+r=[]
+for i in test_list:
+    for j,k in enumerate(i):
+        r.append(j)
+print(r[n])
+
+2.Reverse each word in a string
+test_list = ["geekforgeeks", "is", "best", "for", "geeks"]
+r=[]
+for i in test_list:
+    r.append(i[::-1])
+print(r)
+
+3.
+
+
+
