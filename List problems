@@ -425,19 +425,17 @@ o/p:
 2
 2
 
-def stringAnagram(dictionary, query):
-    from collections import defaultdict..............>also use d={} ...and d[i] = d.get(i,0)+1 ...this dictionary count logic
-    
-    anagram_counts = defaultdict(int)
-    for word in dictionary:
-        key = ''.join(sorted(word))
-        anagram_counts[key] += 1
-    
-    result = []
-    for q in query:
-        key = ''.join(sorted(q))
-        result.append(anagram_counts.get(key, 0))
-    return result
+di = ["listen", "silent", "enlist", "google", "gooegl"]
+queries = ["listen", "google", "gooleg"]
+d={}
+r=[]
+for i in di:
+  k="".join(sorted(i))
+  d[k]=d.get(k,0)+1
+for i in queries:
+    s="".join(sorted(i))
+    r.append(d.get(s,0))
+print(r)
 
 
 
