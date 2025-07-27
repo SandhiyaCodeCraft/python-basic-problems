@@ -482,3 +482,68 @@ print("".join(l))
 n=int(input())
 s=str(n)
 print(s.replace('0','5'))
+
+26.print count of uppercase letters
+s=input()
+c=0
+for i in s:
+  if i.isupper():
+      c+=1
+print(c)
+
+27.TOP SCORING BATSMAN
+
+Example Input/Output 1:
+Input:
+5
+BatsmanA,45
+
+BatsmanB,52
+
+BatsmanC,12
+
+BatsmanD,9
+
+BatsmanE,78
+
+Output:
+
+BatsmanE
+CODE:
+n=int(input())
+l=[]
+for i in range(n):
+ s=input()
+ name, score=s.split(",")
+ li.append([name,int(score)])
+m=max([j for i,j in l])
+res=[i for i,j in 1 if j==m]
+print(*res)
+
+28.TOP SCORING STUDENT
+Example Input/Output 1:
+Input:
+4
+Sasikumar:50:60:70
+
+Arun:60:40:90
+
+Manoj:50:50:60
+
+Rekha:60:35:45
+
+Output:
+
+Arun
+CODE:
+n=int(input())
+li=[]
+for i in range(n):
+  s=input()
+  name, m1, m2, m3=s.split(":")
+  li.append([name,int(m1),int(m2),int(m3)])
+
+res=[sum([s1,s2,s3]) for n, s1,s2,s3 in li]
+m=max(res)
+r=[n for n,s1,s2,s3 in li if sum([s1,s2,s3])==m]
+print(*r)
