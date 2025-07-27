@@ -269,3 +269,22 @@ for i in s:
       c+=1
 print(c)
 
+11.The name and mileage of certain cars is passed as the input. The format is CARNAME@MILEAGE and the input is as a single line, with each car information separated space. 
+The program must print the car with the lowest mileage. (Assume no two cars will ha the lowest mileage)
+The first line contains the CARNAME@MILEAGE separated by a space.
+Input:
+Zantro@16.15 Zity@12.5 Gamry@9.8
+Output:
+Gamry
+
+s=input().split(" ")
+l=[]
+for i in s:
+   name, mileage = i.split("@")
+   l.append([name,int(mileage)])
+low=min([j for i,j in l])
+res=[i for i,j in 1 if j==low] I
+print(*res)
+
+
+
