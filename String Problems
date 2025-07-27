@@ -547,3 +547,18 @@ res=[sum([s1,s2,s3]) for n, s1,s2,s3 in li]
 m=max(res)
 r=[n for n,s1,s2,s3 in li if sum([s1,s2,s3])==m]
 print(*r)
+
+29.FIND MISSING LETTER IN PALINDROMIC STRING
+Eg:Malayaam
+o/p:l
+
+s=input()
+m=len(s)//2
+for i in range(m):
+  if s[i]!=s[n-i-1]:
+     if s[i+1:n-i]==s[i+1:n-i][::-1]:
+       print(s[i])
+     else:
+       print(s[n-i-1]) 
+     break
+
