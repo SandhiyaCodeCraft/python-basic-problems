@@ -182,3 +182,71 @@ for i in range(len(matrix)):
 
 print(''.join(str(x) for x in result))  # Output: 123654789
 
+4.FIND MAX GCD
+
+N1=int(input())
+N2=int(input())
+m=min(N1,N2)
+l=[]
+for i in range(1,m+1):
+   if(N1%i==0 and N2%i==0):
+      l.append(i)
+print(max(l))
+
+5.remove first and last character...........python string doesn't have any builtin fn to remove charcter..using indexing
+s=input()
+print(s[1:-1])
+
+6.print odd integers between range
+n1=int(input())
+n2=int(input())
+for i in range(n1+1, n2):
+   if i%2!=0:
+      print(i,end=" ")
+
+7.print string till character c
+
+s=input()
+c=input()
+i=s.find(c)
+print(s[i])
+
+8.fibonacci sequence
+n=input(input())
+f=0
+s=1
+print(f,s,end=" ")
+for i in range(2,n):
+    t=f+s
+    print(t,end=" ")
+    f=s
+    s=t
+
+9.Example Input/Output 1:
+Input:
+3
+250 200
+
+450 300
+
+200 250
+
+Output:
+
+300.00
+
+250.00
+
+CODE:
+n=int(input())
+f=[]
+s=[]
+for i in range(n):
+  n1, n2 = map(int,input().split())
+  f.append(n1)
+  s.append(n2)
+r1=sum(f)/n
+r2=sum(s)/n
+print(f"{r1:.2f}")
+print(f"{r2:.2f}")...........use f string for 2 decimal place condition
+
