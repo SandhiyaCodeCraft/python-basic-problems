@@ -250,3 +250,22 @@ r2=sum(s)/n
 print(f"{r1:.2f}")
 print(f"{r2:.2f}")...........use f string for 2 decimal place condition
 
+10.
+Input:
+10:00 9:55 10:02 9:45 11:00
+Output:
+2
+Explanation:
+The 2 people were those who came at 10:02 and 11:00
+
+CODE:
+s=input().split(" ")
+thresold=10*60
+c=0
+for i in s:
+   h,m=i.split(":")
+   total=int(h)*60+int(m)
+   if total > thresold:
+      c+=1
+print(c)
+
