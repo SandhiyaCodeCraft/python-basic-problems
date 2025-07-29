@@ -286,5 +286,14 @@ low=min([j for i,j in l])
 res=[i for i,j in 1 if j==low] I
 print(*res)
 
+12.remove duplicates using mapping
+l=[1,4,6,4,2,2,5]
+d={}
+for i in l:
+    if d.get(i,0)==0:
+        d[i]=d.get(i,0)+1
+res=[i for i,j in d.items()]
+print(res)
+
 
 
