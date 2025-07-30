@@ -295,5 +295,44 @@ for i in l:
 res=[i for i,j in d.items()]
 print(res)
 
+12....EXTRACT THE VOWELS AND PLACE IT IN REVERSE ORDER
+YOGESHWARAN
+YAGASHWERON
+
+s=input().lower()
+v=[i for i in s if i in "aeiou"]
+j=len(v)-1
+res=[0]*len(s)
+for i in range(len(s)):
+    if s[i] in v:
+        res[i]=v[j]
+        j-=1
+    else:
+        res[i]=s[i]
+print("".join(res))
+
+13.RETURN SUM OF BOTH ARRAY MIDDLE ELEMENT....IF len(arr) is even mid = add the centre two element and divide by 2
+def mid_element(arr):
+    m=len(arr)//2
+    if len(arr)%2==0:
+        return (arr[m]+arr[m-1])//2
+    else:
+        return arr[m]
+a=list(map(int,input().split()))
+b=list(map(int,input().split()))
+a1=sorted(a)
+b1=sorted(b)
+ma=mid_element(a1)
+mb=mid_element(b1)
+print(ma+mb)
+
+14.Return the element whose repeated count is odd
+l=[1,3,2,3,2,1,4,5,4,6,7,3,2]
+d={}
+for i in l:
+    d[i]=d.get(i,0)+1
+res=[i for i,j in d.items() if j>1 and j%2!=0]
+print(res)
+
 
 
