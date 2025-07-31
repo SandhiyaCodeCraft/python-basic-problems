@@ -102,5 +102,22 @@ o/p:1180
 r=float(input())
 print(int(round(r*100)))
 
+6.i/p:11-06-2005
+o/p:June
+from datetime import datetime
+date_str = input("Enter date (dd-mm-yyyy): ")
+date_obj = datetime.strptime(date_str, "%d-%m-%Y")....capital Y
+print(date_obj.strftime("%B"))..........%B=December,%b-Dec,%m-12
+
+7.A string S is passed as the input. A positive integer X is also passed as the input. The program must print the characters at positions which are multiples of X.
+s=input()
+n=int(input())
+S=""
+for i in range(1,len(s)):
+    m=i*n-1
+    if m<len(s):
+      S+=s[m]
+print(S)
+
 
 
