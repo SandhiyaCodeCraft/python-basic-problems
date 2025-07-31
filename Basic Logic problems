@@ -334,5 +334,13 @@ for i in l:
 res=[i for i,j in d.items() if j>1 and j%2!=0]
 print(res)
 
+15.Round the number to nearest multiple of 10
+n=int(input())
+print(round(n/10)*10)
+i/p:38
+o/p:40
+
+38/10=3.8 rounded to 4 *10=40
+
 
 
