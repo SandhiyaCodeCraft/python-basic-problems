@@ -342,5 +342,27 @@ o/p:40
 
 38/10=3.8 rounded to 4 *10=40
 
+16.Print uppercase lowercase alternatively in sorted order
+i/p:SanDhiYa
+o/p:DaSaYhin
+
+s=input()
+u=sorted([i for i in s if i.isupper()])
+l=sorted([i for i in s if i.islower()])
+res=[]
+j,k=0,0
+while j<len(u) and k<len(l):
+    res.append(u[j])
+    j+=1
+    res.append(l[k])
+    k+=1
+while j<len(u):
+    res.append(u[j])
+    j+=1
+while k<len(l):
+    res.append(l[k])
+    k+=1
+print("".join(res))
+
 
 
