@@ -111,13 +111,13 @@ print(date_obj.strftime("%B"))..........%B=December,%b-Dec,%m-12
 
 7.A string S is passed as the input. A positive integer X is also passed as the input. The program must print the characters at positions which are multiples of X.
 s=input()
-n=int(input())
-S=""
+n=5
+l=list(s)
+res=""
 for i in range(1,len(s)):
-    m=i*n-1
-    if m<len(s):
-      S+=s[m]
-print(S)
+    if i%n==0:
+        res+=l[i]
+print(res)
 
 
 
