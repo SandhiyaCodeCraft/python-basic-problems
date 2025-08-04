@@ -1,0 +1,48 @@
+1.Number of substrings of one string present in other
+
+s1=input()
+s2=input()
+c=0
+for i in range(len(s1)):
+    s=""
+    for j in range(i,len(s1)):
+        s+=s1[j]
+        if s2.find(s)!=-1:
+            c+=1
+print(c)
+
+Input :s1 = abcd
+       s2 = swalencud
+Output :3 
+
+2.Print all substring of a number 
+s1=int(input())
+s2=str(s1)
+for i in range(len(s2)):
+    s=""
+    for j in range(i,len(s2)):
+        s+=s2[j]
+        print(s)
+
+Input: N = 123 
+Output: Possible Substrings: {1, 12, 123, 2, 23, 3}  
+
+3.Find the count of palindromic sub-string of a string in its sorted form
+
+s=input()
+s1=sorted(s)
+c=[]
+for i in range(len(s1)):
+    s=""
+    for j in range(i,len(s1)):
+        s+=s1[j]
+        if s==s[::-1]:
+            c.append(s)
+print(len(c))
+print(*sorted(c))
+
+Input: str = "acbbd" 
+Output: 6 
+All palindromic sub-string in it's sorted form ("abbcd") are "a", "b", "b", "bb", "c" and "d".
+
+
