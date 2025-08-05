@@ -380,3 +380,285 @@ for i in range(1,len(a)):
         res.append(a[i])
 print(len(res))
 
+18.Panagram or not:
+1.Number of substrings of one string present in other
+
+s1=input()
+s2=input()
+c=0
+for i in range(len(s1)):
+    s=""
+    for j in range(i,len(s1)):
+        s+=s1[j]
+        if s2.find(s)!=-1:
+            c+=1
+print(c)
+
+Input :s1 = abcd
+       s2 = swalencud
+Output :3 
+
+2.Print all substring of a number 
+s1=int(input())
+s2=str(s1)
+for i in range(len(s2)):
+    s=""
+    for j in range(i,len(s2)):
+        s+=s2[j]
+        print(s)
+
+Input: N = 123 
+Output: Possible Substrings: {1, 12, 123, 2, 23, 3}  
+
+3.Find the count of palindromic sub-string of a string in its sorted form
+
+s=input()
+s1=sorted(s)
+c=[]
+for i in range(len(s1)):
+    s=""
+    for j in range(i,len(s1)):
+        s+=s1[j]
+        if s==s[::-1]:
+            c.append(s)
+print(len(c))
+print(*sorted(c))
+
+Input: str = "acbbd" 
+Output: 6 
+All palindromic sub-string in it's sorted form ("abbcd") are "a", "b", "b", "bb", "c" and "d".
+
+4.Substring Reverse Pattern
+def revsub(s):
+    print(''.join(s))
+    i=0
+    j=len(s)-1
+    while i<j:
+        s[i],s[j]=s[j],s[i]
+        i+=1
+        j-=1
+    i,j=0,len(s)-1
+    while i<j:
+        s[i],s[j]='',''
+        print(''.join(s))
+        i+=1
+        j-=1
+s=input()
+revsub(list(s))
+
+Input: str = "geeks" 
+Output: 
+geeks 
+kee 
+*e* 
+
+5.Check if a string contains a palindromic substring of even length
+def palinsub(s1):
+    for i in range(len(s1)):
+        s = ""
+        for j in range(i, len(s1)):
+            s += s1[j]
+            if s == s[::-1] and len(s) % 2 == 0:
+                return "YES"
+    return "NO"
+
+s1 = input()
+print(palinsub(s1))
+
+Input  : aassss
+Output : YES
+Input  : gfg
+Output : NO
+
+6. Count number of substrings with numeric value greater than X
+def count_greater(s1, x):
+    c = 0
+    for i in range(len(s1)):
+        s = ""
+        for j in range(i, len(s1)):
+            s += s1[j]
+            if int(s) > x:
+                c += 1
+    return c
+
+s = input()
+x = int(input())
+print(count_greater(s, x))
+
+Input: S = "471", X = 47
+Output: 2
+Only the sub-strings "471" and "71" 
+satisfy the given conditions.
+
+7.Maximum count of sub-strings of length K consisting of same characters
+def samechar(s1,k):
+    if k>len(s1):...............base condition
+        return 0
+    d={}
+    for i in range(0,len(s1)-k+1,k):.................if substring asked on length k use this
+        sub=s1[i:i+k]..........................generate substring like this
+        if sub.count(sub[0])==k:.....................check substr of same characters
+            d[sub]=d.get(sub,0)+1
+    if d:
+        return max(d.values())
+    else:
+        return 0
+s1=input()
+k=int(input())
+print(samechar(s1,k))
+
+Input: str = "aaacaabbaa", k = 2 
+Output: 3 
+
+8.Count of sub-strings of length n.............same above model..because length is given
+def count_substrings(string, n):
+    count = 0
+    for i in range(len(string) - n + 1):
+        substring = string[i:i+n]
+        if len(substring) == n:
+            count += 1
+    return count
+
+str = "geeksforgeeks"
+n = 5
+print(count_substrings(str, n))
+
+Input: str = "geeksforgeeks", n = 5 
+Output: 9 
+
+9.Find distinct characters in distinct substrings of a string
+
+def count_disubstrings(s):
+    l=set()
+    c=0
+    for i in range(len(s)):
+        s1 = ""
+        for j in range(i,len(s)):
+            s1 += s[j]
+            l.add(s1)
+    for i in l:
+        c+=len(set(i))
+    return c
+
+s = input()
+print(count_disubstrings(s))
+
+nput: str = "ABCA" 
+Output: 18 
+ 
+
+10.Length of longest substring having all characters as K
+
+def longsub(s,k):
+    d={}
+    for i in range(len(s)):
+        s1 = ""
+        for j in range(i,len(s)):
+            s1 += s[j]
+            if s1.startswith(k) and s1.count(k)==len(s1):
+                d[s1]=len(s1)
+    return max(d.values())
+s = input()
+k=input()
+print(longsub(s,k))
+
+Input: S = "abcd1111aabc", K = '1' 
+Output: 4 
+Explanation: 
+1111 is the largest substring of length 4.
+
+11.Longest sub string of 0's in a binary string which is repeated K times
+
+def longsub(S,k):
+    s=S*k
+    d={}
+    for i in range(len(s)):
+        s1 = ""
+        for j in range(i,len(s)):
+            s1+=s[j]
+            if s1.startswith('0') and s1.count('0')==len(s1):
+                d[s1]=s1.count('0')
+    return max(d.values())
+            
+S = input()
+k=int(input())
+print(longsub(S,k))
+
+nput : S = "100001" , K = 3 
+Output : 4 
+After repeating given string 3 time, string becomes 100001100001100001. 
+The longest substring of 0's is 4 
+
+12.Maximum length palindromic substring such that it starts and ends with given char
+def longsub(s,ch):
+    d={}
+    for i in range(len(s)):
+        s1 = ""
+        for j in range(i,len(s)):
+            s1+=s[j]
+            if s1==s1[::-1] and s1.startswith(ch) and s1.endswith(ch):
+                d[s1]=len(s1)
+    return max(d.values())
+            
+s = input()
+ch=input()
+print(longsub(s,ch))
+
+Input: str = "lapqooqpqpl", ch = 'p' 
+Output: 6 
+"pqooqp" is the maximum length palindromic 
+sub-string that starts and ends with 'p'.
+
+13.Count all substrings having character K
+def longsub(s,ch):
+    c=0
+    for i in range(len(s)):
+        s1 = ""
+        for j in range(i,len(s)):
+            s1+=s[j]
+            if ch in s1:
+                c+=1
+    return c
+            
+s = input()
+ch=input()
+print(longsub(s,ch))
+
+
+Input: str = "geeks", K = 'g' 
+Output: 5 
+"g", "ge", "gee", "geek" and "geeks" are the valid substrings.
+Input: str = "geeksforgeeks", K = 'k' 
+Output: 56 
+
+14.Reverse the given string in the range [L, R]
+
+def rev(s,l,r):
+    return s[:l]+s[l:r+1][::-1]+s[r+1:]
+            
+s = input()
+l=int(input())
+r=int(input())
+print(rev(s,l,r))
+
+nput: str = "geeksforgeeks", L = 5, R = 7 
+Output: geeksrofgeeks 
+
+15.Number of substrings that start with "geeks" and end with "for"
+def count(s):
+    c=0
+    for i in range(len(s)):
+        s1 = ""
+        for j in range(i,len(s)):
+            s1+=s[j]
+            if s1.startswith('geeks') and s1.endswith('for'):
+                c+=1
+    return c      
+s = input()
+print(count(s))
+
+Input: str = "geeksforgeeksisforgeeks" 
+Output: 3 
+"geeksfor", "geeksforgeeksisfor" and "geeksisfor" 
+are the only valid substrings.
+
