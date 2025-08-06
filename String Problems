@@ -562,3 +562,36 @@ for i in range(m):
        print(s[n-i-1]) 
      break
 
+30.FIRST NON REPEATING CHARACTER:
+s = "geeksforgeeks"
+d = {}
+
+for i in s:
+    d[i] = d.get(i, 0) + 1
+
+for i in s:
+    if d.get(i) == 1:
+        print(i)
+        break
+
+30.LONGEST COMMON PREFIX
+
+arr = ['geeksforgeeks', 'geeks', 'geek', 'geezer']
+
+arr.sort()
+
+f = arr[0]
+l = arr[-1]  
+
+m = min(len(f), len(l))
+i = 0
+
+while i < m and f[i] == l[i]: 
+    i += 1
+
+print(f[:i])
+
+o/p:
+gee
+
+
