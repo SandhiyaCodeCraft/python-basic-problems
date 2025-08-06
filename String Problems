@@ -594,4 +594,62 @@ print(f[:i])
 o/p:
 gee
 
+31.REPEATING CHARACTER FROM LAST
+
+s = input()
+d = {}
+for i in s:
+    d[i] = d.get(i, 0) + 1
+for i in range(len(s) - 1, -1, -1):
+    if d[s[i]] > 1:
+        print(s[i])
+        break
+
+32.MINIMUM DISTANCE BETWEEN TWO STRINGS
+
+arr = ['geeksforgeeks', 'san', 'tue', 'geeks', 'geek', 'geezer']
+word1 = 'san'
+word2 = 'geek'
+
+d1 = -1
+d2 = -1
+
+for i in range(len(arr)):
+    if arr[i] == word1:
+        d1 = i
+    if arr[i] == word2:
+        d2 = i
+    if d1 != -1 and d2 != -1:
+        print(abs(d2 - d1))
+        break  # if you only want first occurrence
+
+33.LAST PORTION OF S1 WILL BE FIRST PORTION OF S2
+
+s1 = input()
+s2 = input()
+
+m = len(s1) // 2
+r = s1[m:]  
+
+s = ""
+i, j = 0, 0
+
+while i < len(r) and j < len(s2):
+    if r[i] != s2[j]:
+        i += 1..........read 2nd example
+    else:
+        s += r[i]
+        i += 1
+        j += 1
+
+print(s)
+
+i/p:mayday,daybreak
+o/p:day
+
+i/p:bridge,gear
+o/p:ge
+
+
+
 
