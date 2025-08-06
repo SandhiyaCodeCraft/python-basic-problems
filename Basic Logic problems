@@ -488,6 +488,24 @@ def isDivBy7(n):
 n = 371
 print(isDivBy7(abs(n)))
 
+24.valid if there is no '0' between 1's else:invalid
 
+def binastr(s):
+    if '1' not in s:
+        return 'valid'
+    else:
+        start=s.find('1')
+        end=s.rfind('1')
+        sub=s[start+1:end]
+        if '0' in sub:
+            return 'Invalid'
+        else:
+            return 'valid'
+    
+s=input()
+print(binastr(s))
+
+1110001-invalid
+100-valid
 
 
