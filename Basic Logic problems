@@ -417,3 +417,77 @@ print(count(s))
 1abc23
 o/p:24
 
+20.Letterexpansion:
+2a4b3h...........o/p:aabbbbhhh
+
+s=input()
+res=''
+temp=''
+for i in s:
+  if i.isdigit():
+    temp+=i
+  else:
+    if temp!='':
+      res+=i*int(temp)
+      temp=''
+print(res)
+
+21.NEXT PRIME NUMBER:.........return itself exits the function so no need of break
+
+import math
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def next_prime(n):
+    num = n + 1
+    while True:
+        if is_prime(num)==True:
+            return num
+        else:
+            num += 1
+
+n = int(input())
+print(next_prime(n))
+
+22.PRIME NUMBERS BETWEEN RANGE:
+
+import math
+
+def prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+n1 = int(input("Enter start number: "))
+n2 = int(input("Enter end number: "))
+
+c = 0
+for i in range(n1, n2+1):
+    if prime(i)==True:
+        c += 1
+
+print(c)
+
+23.DIVISIBLITY BY 7
+def isDivBy7(n):
+    if n == 0:
+        return True
+    while n >= 7:
+        n -= 7
+    return n == 0
+
+n = 371
+print(isDivBy7(abs(n)))
+
+
+
+
