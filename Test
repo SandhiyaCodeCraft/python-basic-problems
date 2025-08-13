@@ -1,0 +1,20 @@
+1.ADDING ELEMENTS OF ARRAY UNTIL EVERY ELEMENT GREATER THAN EQUAL TO K
+
+def min_operations(arr, k):
+    operations = 0
+    arr.sort()
+
+    while arr[0] < k:
+        if len(arr) < 2:
+            return -1  # Not possible
+
+        first = arr.pop(0)   # smallest
+        second = arr.pop(0)  # second smallest
+        arr.append(first + second)
+        arr.sort()
+        operations += 1
+
+    return operations
+arr = [1, 10, 12, 9, 2, 3]
+k = 6
+print(min_operations(arr, k))  # Output: 2
