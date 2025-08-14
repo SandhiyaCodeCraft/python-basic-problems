@@ -71,3 +71,14 @@ print(median)
 i/p:arr1=[1,12,15,26,38],arr2=[2,13,17,30,45]
 o/p:16
 (15+17)/2=16
+
+5.SWAP Kth element from beginning with kth element from end
+
+arr1=list(map(int,input().split()))
+k=int(input())
+arr1[k-1],arr1[-k]=arr1[-k],arr1[k-1]
+print(arr1)
+
+i/p:[5,3,6,1,2]
+    k=2
+o/p:[5,1,6,3,2]
