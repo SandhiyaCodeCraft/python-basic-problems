@@ -65,7 +65,7 @@ while j<len(arr2):
     res.append(arr2[j])
     j+=1
 m=len(res)//2
-median=(res[m-1]+res[m])//2
+median=(res[m-1]+res[m])/2.............in some testcase they may expect ans in float
 print(median)
 
 i/p:arr1=[1,12,15,26,38],arr2=[2,13,17,30,45]
