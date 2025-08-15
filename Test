@@ -82,3 +82,30 @@ print(arr1)
 i/p:[5,3,6,1,2]
     k=2
 o/p:[5,1,6,3,2]
+
+6.CHECK AN ARRAY IS SUBSET OF ANOTHER ARRAY
+
+arr1=list(map(int,input().split()))
+arr2=list(map(int,input().split()))
+c=0
+for i in arr2:
+    if i in arr1:
+        c+=1
+if c==len(arr2):
+    print("True")
+else:
+    print("False")
+
+[10,5,2,23,19][19,5,3]
+o/p:False
+
+7.MOVE ZEROS TO END
+
+l=list(map(int,input().split()))
+res=[0]*len(l)
+j=0
+for i in range(len(l)):
+    if l[i]!=0:
+        res[j]=l[i]
+        j+=1
+print(res)
