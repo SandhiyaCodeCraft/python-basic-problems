@@ -109,3 +109,61 @@ for i in range(len(l)):
         res[j]=l[i]
         j+=1
 print(res)
+
+8.LCM AND GCD OF TWO NUMBERS:
+
+a=int(input())
+b=int(input())
+gcd=1
+for i in range(1,min(a,b)+1):
+    if a%i==0 and b%i==0:
+        gcd=i
+lcm=(a*b)//gcd
+print(lcm)
+
+9.Given two numbers b and e, the task is to implement a function to compute b^e
+A Input: b = 3 e = 5
+Output: 243.00000
+Input: b = 0.55 e = 3
+Output: 0.16638
+Input: b = - 0.67 e = - 7
+Output: -16.49971
+
+WITHOUT BUILTIN FN:
+def power(b,e):
+    pow=1
+    for i in range(abs(e)):
+        pow=pow*b
+    if e<0:
+        return 1/pow
+    else:
+        return pow
+b=float(input())
+e=int(input())
+res=power(b,e)
+print(f"{res:.5f}")
+
+OR
+
+import math
+b=float(input())
+e=int(input())
+res=math.pow(b,e)
+print(f"{res:.5f}")
+
+10.Given a number N, complete the following tasks.
+Task 1. Generate a new number from N by changing the zeroes in the binary representation of N to 1.
+Task 2. Find the difference between N and the newly generated number.
+
+Example 1:
+Input: N = 8
+Output: 7 15
+Explanation:
+There are 3 zeroes in binary representation of 8. Changing them to 1 will give 15.
+Difference between these two is 7.
+
+N=int(input())
+s=bin(N)[2:].............int to bin.......it gives as binary string...so no need to convert to str
+bi=s.replace('0','1')
+res=int(bi,2)..................converting binary string to int
+print(res-N,res)
