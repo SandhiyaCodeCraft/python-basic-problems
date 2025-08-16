@@ -1,1 +1,125 @@
+1.Split an array into two equal Sum subarrays
+Input : Arr[] = { 4, 1, 2, 3 }
+Output : {4 1}
+         {2 3}
+def eqsub(arr):
+    total = sum(arr)
+    left_sum = 0
+
+    for i in range(len(arr) - 1):  # Stop at second last element
+        left_sum += arr[i]
+        right_sum = total - left_sum
+
+        if left_sum == right_sum:
+            return arr[:i+1], arr[i+1:]
+
+    return 'not possible'
+
+arr = list(map(int, input().split()))
+print(eqsub(arr))
+Why we don't use two loop subarray concept means ...we only need consecutive substring starting from first only
+
+2.Check if subarray with given product exists in an array
+Input: arr[] = {-2, -1, 3, -4, 5}, K = 2
+Output: YES
+
+def prodsub(arr, k):
+    for i in range(len(arr)):
+        p = 1
+        for j in range(i, len(arr)):
+            p *= arr[j]
+            if p == k:
+                return 'yes'
+    return 'no'
+
+arr = list(map(int, input().split()))
+k = int(input())
+print(prodsub(arr, k))
+
+3.Subarray of size k with given sum
+Input: arr[] = {1, 4, 2, 10, 2, 3, 1, 0, 20}
+        k = 4, sum = 18
+Output: YES
+
+def prodsub(arr, k, s):
+    for i in range(len(arr) - k + 1):  # inclusive range for last subarray
+        sub = arr[i:i+k]
+        if sum(sub) == s:
+            return 'yes', sub
+    return 'no'
+
+arr = list(map(int, input().split()))
+k = int(input())
+s = int(input())
+print(prodsub(arr, k, s))
+
+4.Count subarrays with all elements greater than K
+def countsub(arr, k):
+    c = 0
+    for i in range(len(arr)):
+        for j in range(i, len(arr)):
+            if arr[j] > k:
+                c += 1
+            else:
+                break
+    return c
+
+arr = list(map(int, input().split()))
+k = int(input())
+print(countsub(arr, k))
+Input: arr[] = {3, 4, 5, 6, 7, 2, 10, 11}, k= 5 
+Output: 6 
+
+5.checks whether one string is a subsequence of the other, in either direction.
+def sub(s1, s2):
+    i = j = 0
+    while i < len(s1) and j < len(s2):
+        if s1[i] == s2[j]:
+            j += 1
+        i += 1
+    return j == len(s2)
+
+s1 = input()
+s2 = input()
+
+if sub(s1, s2) or sub(s2, s1):
+    print("True")
+else:
+    print("False")
+
+abcde
+ace
+ace is a subsequence of abcde → True
+
+6.Find All Occurrences of Subarray in Array
+Input: a[] = [2, 3, 0, 3, 0, 3, 0], b[] = [3, 0, 3, 0] 
+Output: [1, 3]
+
+def sub(arr1, arr2):
+    for i in range(len(arr1)):
+        sub_arr = []
+        for j in range(i, len(arr1)):
+            sub_arr.append(arr1[j])
+            if sub_arr == arr2:
+                return [i, j]
+    return 'no subarray'
+
+arr1 = list(map(int, input().split()))
+arr2 = list(map(int, input().split()))
+print(sub(arr1, arr2))
+
+7.store all subarrays whose first and last element are equal, and then return the length of the longest such subarray
+def sub(arr):
+    d = {}  # to store subarray as key and its length as value
+    
+    for i in range(len(arr)):
+        sub_arr = []
+        for j in range(i, len(arr)):
+            sub_arr.append(arr[j])
+            if sub_arr[0] == sub_arr[-1]:
+                d[' '.join(sub_arr)] = len(sub_arr)
+    return max(d.values()) if d else 0
+
+arr = list(map(str, input().split()))
+print(sub(arr))
 
