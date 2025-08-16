@@ -198,7 +198,7 @@ o/p:5
 13.ARMSTRONG NUMBER 
 import math
 n=int(input())
-le=len([i for i in str(n)])
+le=len(str(n))
 s=0
 for i in str(n):
     s+=int(math.pow(int(i),le))..............convert to int if use math.pow,math.sqrt
