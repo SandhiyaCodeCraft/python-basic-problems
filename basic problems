@@ -5,7 +5,7 @@ n=int(input())
 c=len(str(n))
 s=0
 for i in str(n):
-    s+=math.pow(int(i),c)
+    s+=int(math.pow(int(i),c))
 if s==n:
     print("armstrong")
 else:
@@ -20,7 +20,7 @@ for i in range(n1,n2+1):
     c=len(str(i))
     s=0
     for j in str(i):
-        s+=math.pow(int(j),c)
+        s+=int(math.pow(int(j),c))
     if s==i:
         print(i,"is armstrong")
     else:
