@@ -167,3 +167,46 @@ s=bin(N)[2:].............int to bin.......it gives as binary string...so no need
 bi=s.replace('0','1')
 res=int(bi,2)..................converting binary string to int
 print(res-N,res)
+
+11.CHECK SUM OF DIGITS IS PALINDROME
+n=int(input())
+su=sum([int(i) for i in str(n)])
+if str(su)==str(su)[::-1]:
+    print('palindrome')
+else:
+    print('not')
+
+I/P:98
+O/P:not
+
+12.NTH FIBONACCI NUMBER.......starts from 0..........use if,elif,else
+
+n=int(input())
+if n==0:
+    print(0)
+elif n==1:
+    print(1)
+else:
+    f,s=0,1
+    for i in range(2,n+1):
+        t=f+s
+        f,s=s,t
+    print(t)
+i/P:5
+o/p:5
+
+13.ARMSTRONG NUMBER 
+import math
+n=int(input())
+le=len([i for i in str(n)])
+s=0
+for i in str(n):
+    s+=int(math.pow(int(i),le))..............convert to int if use math.pow,math.sqrt
+if n==s:
+    print('Armstrong')
+else:
+    print('not')
+
+
+
+
