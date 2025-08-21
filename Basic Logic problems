@@ -187,11 +187,19 @@ print(''.join(str(x) for x in result))  # Output: 123654789
 N1=int(input())
 N2=int(input())
 m=min(N1,N2)
-l=[]
+gcd=1
 for i in range(1,m+1):
    if(N1%i==0 and N2%i==0):
-      l.append(i)
-print(max(l))
+      gcd=i
+print(gcd)
+
+or Euclidean method
+
+a=int(input())
+b=int(input())
+while b!=0:
+    a,b=b,a%b
+print(a).........final gcd
 
 5.remove first and last character...........python string doesn't have any builtin fn to remove charcter..using indexing
 s=input()
@@ -209,7 +217,7 @@ for i in range(n1+1, n2):
 s=input()
 c=input()
 i=s.find(c)
-print(s[i])
+print(s[:i])
 
 8.fibonacci sequence
 n=input(input())
@@ -260,7 +268,7 @@ The 2 people were those who came at 10:02 and 11:00
 
 CODE:
 s=input().split(" ")
-thresold=10*60
+thresold=10*60......after 10.00
 c=0
 for i in s:
    h,m=i.split(":")
@@ -299,17 +307,14 @@ print(res)
 YOGESHWARAN
 YAGASHWERON
 
-s=input().lower()
-v=[i for i in s if i in "aeiou"]
+s=list(input().lower())
+v=[i for i in s if i in 'aeiou']
 j=len(v)-1
-res=[0]*len(s)
 for i in range(len(s)):
     if s[i] in v:
-        res[i]=v[j]
+        s[i]=v[j]
         j-=1
-    else:
-        res[i]=s[i]
-print("".join(res))
+print(''.join(s))
 
 13.RETURN SUM OF BOTH ARRAY MIDDLE ELEMENT....IF len(arr) is even mid = add the centre two element and divide by 2
 def mid_element(arr):
