@@ -22,14 +22,13 @@ print©
 
 arr=[1,2,4,6,9,3]
 c=0
-for i in range(len(arr)):
+for i in range(1,len(arr)-1):
     l=i-1
     r=i+1
-    if l<len(arr) and r<len(arr):
-        if arr[l]>arr[r]:
-            c+=1
-            print(arr[i])
-            print(f"{arr[i]}-{arr[l]},{arr[r]}")
+    if arr[l]>arr[r]:
+        c+=1
+        print(arr[i])
+        print(f"{arr[i]}-{arr[l]},{arr[r]}")
 print(c)
 
 
@@ -37,14 +36,13 @@ print(c)
 
 arr=[1,2,6,4,7,3]
 c=0
-for i in range(len(arr)):
+for i in range(1,len(arr)-1):
     l=i-1
     r=i+1
-    if l<len(arr) and r<len(arr):
-        if arr[l]+arr[r]==arr[i]:
-            c+=1
-            print(arr[i])
-            print(f"{arr[i]}-{arr[l]}+{arr[r]}")
+    if arr[l]+arr[r]==arr[i]:
+          c+=1
+          print(arr[i])
+          print(f"{arr[i]}-{arr[l]}+{arr[r]}")
 print(c)
 
 o/p:
@@ -104,22 +102,35 @@ O/P:[1,2,2,4,9,6,5,5]
 
 7.ZOHO QN:WE HAVE TO PLACE EVEN NUMERS IN EVEN NUMBER INDICES..IN ASCENDING...AND ODD MEANS DECENDING...PLACE IT IF ODD NUMBER IS ENCOUNTERED
 arr=[6,4,2,9,1,5,2,5]
-e=sorted([i for i in arr if i%2==0])
-o=sorted([i for i in arr if i%2!=0],reverse=True)
-j,k=0,0
+e = sorted([i for i in arr if i % 2 == 0])          # ascending
+o = sorted([i for i in arr if i % 2 != 0], reverse=True)  # descending
+j, k = 0, 0
 for i in range(len(arr)):
-    if arr[i]%2==0:
-        arr[i]=e[j]
-        j+=1
-    if arr[i]%2!=0:
-        arr[i]=o[k]
-        k+=1
+    if i % 2 == 0:   # even index
+        arr[i] = e[j]
+        j += 1
+    else:            # odd index
+        arr[i] = o[k]
+        k += 1
+
 print(arr)
 
-O/P:[2,2,4,9,5,5,6,1]....in i/p arr 6 is even so the first sorted even element is 2...that is placed...likewise
+
+O/P:[2, 9, 2, 5, 4, 5, 6, 1]
+....in i/p arr 6 is even so the first sorted even element is 2...that is placed...likewise
 
 8.in question N=10, n1,n2=1,5, val=5.....n1,n2 are 1 based index means 1 is 1st element i.e 0th index element..5 means 4th index
 [1,2,3,4,5,6,7,8,9,10]...in first swap [5,4,3,2,1,6,7,8,9,10]...in second swap [5,4,3,2,1,10,9,8,7,6].......mid=5 i.e element 6
+N=int(input())
+n1,n2 = map(int,input().split())
+val=int(input())
+l=[i for i in range(1,N+1)]
+res=[]
+res.extend(l[n1-1:n2][::-1])
+res.extend(l[n2:][::-1])
+print(res)
+
+or
 
 def swap(l,s,e):............................use this instead of indexing reverse ::-1
     while s<e:
@@ -158,9 +169,9 @@ o/p:45
 arr=[1,2,3,4,5,6,7,8,9]
 gap=3
 t=0
-for i in range(gap+1):
+for i in range(gap):
     s=0
-    for j in range(i,len(arr),gap+1):
+    for j in range(i,len(arr),gap):
         s+=arr[j]
     t+=s
 print(t)
@@ -226,12 +237,14 @@ def sorting(arr):
 arr=[6,4,2,9,1,5,2,5]
 print(sorting(arr))
 
-14.MISSING ELEMENT IN AN ARRAY
+14.MISSING ELEMENT IN AN ARRAY....0 to n
 a=[5,4,0,1,2]
 n=len(a)
-s1=n*(n+1)/2
+s1=n*(n+1)//2
 s2=sum(a)
-print(int(s1-s2))
+print(s1-s2)
+
+Missing element from 1 to N means ....use formula:s1=(n+1)*(n+2)//2
 
 15.MOVE ZEROS TO END:
 a=[5,0,0,4,0,1,2]
@@ -309,6 +322,14 @@ for i in list1:
     for j in str(i):
         sum+=int(j)
     lst.append(sum)
+print(*lst)
+
+or
+list1 = list(map(int,input().split()))
+lst = []
+for i in list1:
+    su=sum([int(i)for i in list(str(i))])
+    lst.append(su)
 print(*lst)
 
 20.MULTIPLY NUMBERS IN A LIST
