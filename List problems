@@ -166,15 +166,12 @@ I/P:arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 gap = 3
 o/p:45
 
-arr=[1,2,3,4,5,6,7,8,9]
+li=list(map(int,input().split()))
 gap=3
-t=0
-for i in range(gap):
-    s=0
-    for j in range(i,len(arr),gap):
-        s+=arr[j]
-    t+=s
-print(t)
+s=0
+for i in range(0,len(li),gap):
+    s+=sum(li[i:i+gap])
+print(s)
 
 11. REPLACE O WITH 5
 
