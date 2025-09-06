@@ -60,7 +60,7 @@ def seclar(li,n):
     l=float('-inf')
     sl=float('-inf')
     for i in li:
-        if i>l:
+        if i>l and i>sl:
             sl=l
             l=i
         elif i>sl and i!=l:
@@ -230,6 +230,19 @@ for i in range(2,n):
     f=s
     s=t
 
+nth fibonaaci
+n=10
+if n==1:
+    print(0)
+elif n==2:
+    print(1)
+else:
+    f,s=0,1
+    for i in range(2,n):
+        t=f+s
+        f,s=s,t
+    print(s)
+
 9.Example Input/Output 1:
 Input:
 3
@@ -303,18 +316,28 @@ for i in l:
 res=[i for i,j in d.items()]
 print(res)
 
+l=list(map(int,input().split()))
+u=[]
+d=[]
+for i in l:
+    if i not in d:
+        u.append(i)
+        d.append(i)
+print(u)
+
 12....EXTRACT THE VOWELS AND PLACE IT IN REVERSE ORDER
 YOGESHWARAN
 YAGASHWERON
 
-s=list(input().lower())
+s=input().lower()
+S=list(s)
 v=[i for i in s if i in 'aeiou']
 j=len(v)-1
-for i in range(len(s)):
-    if s[i] in v:
-        s[i]=v[j]
+for i in range(len(S)):
+    if S[i] in v:
+        S[i]=v[j]
         j-=1
-print(''.join(s))
+print(''.join(S))
 
 13.RETURN SUM OF BOTH ARRAY MIDDLE ELEMENT....IF len(arr) is even mid = add the centre two element and divide by 2
 def mid_element(arr):
@@ -376,13 +399,12 @@ Output: 4
 
 Explanation: Only buildings of height 6, 8, 11 and 13 can see the sun, hence output is 4.
 
-a=list(map(int,input().split()))
+l=list(map(int,input().split()))
 res=[]
-res.append(a[0])
-for i in range(1,len(a)):.....check i's prev element is lower 
-    l=i-1
-    if a[l]<a[i]:
-        res.append(a[i])
+res.append(l[0])
+for i in range(1,len(l)):
+    if l[i]>max(res):
+        res.append(l[i])
 print(len(res))
 
 18.Panagram or not:a pangram only cares whether all 26 letters (a–z) are present at least once
