@@ -650,6 +650,23 @@ o/p:day
 i/p:bridge,gear
 o/p:ge
 
+34.i/p:san:dhiy:at
+o/p:tay:ihdn:as
+s=input()
+S=list(s)
+l=0
+r=len(S)-1
+while l<r:
+    if not S[l].isalpha():
+        l+=1
+    elif not S[r].isalpha():
+        r-=1
+    else:
+        S[l],S[r]=S[r],S[l]
+        l+=1
+        r-=1
+print(''.join(S))
+
 
 
 
