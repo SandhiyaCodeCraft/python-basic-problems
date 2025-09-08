@@ -667,6 +667,20 @@ while l<r:
         r-=1
 print(''.join(S))
 
+35.I/p:abcadbc
+o/p:abbcccaddddbbccc
+s=input()
+d={}
+dup=[]
+res=''
+for i in range(len(s)):
+    if s[i] not in dup:
+        d[s[i]]=i+1
+        dup.append(s[i])
+for i in s:
+    res+=(i*d[i])
+print(res)
+
 
 
 
