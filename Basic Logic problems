@@ -531,4 +531,9 @@ print(binastr(s))
 1110001-invalid
 100-valid
 
+25.
+1.Rotate an array
+l=list(map(int,input().split()))
+k=2
+print(*l[-k:]+l[:k+1])
 
